@@ -15,10 +15,12 @@ const getTheme = async () => {
   return res.json();
 };
 const getStuff = async () => {
-  const stuffRes = await fetch(
-    `https://us-central1-spring-api-ff589.cloudfunctions.net/getSlug`
-  );
-  return stuffRes.json();
+  const url_base =
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000'
+      : 'https://shiny-kringle-256047.netlify.app/';
+  const res = await fetch(`${url_base}/api/hello`);
+  return 'hello';
 };
 
 export default async function RootLayout({
@@ -29,7 +31,7 @@ export default async function RootLayout({
   const store = await getStore();
   const theme = await getTheme();
   const stuff = await getStuff();
-  console.log(stuff);
+  // console.log(theme);
   useStore.setState({
     name: store.name,
     slug: store.slug,

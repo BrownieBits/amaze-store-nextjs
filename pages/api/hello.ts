@@ -15,8 +15,7 @@ export default function handler(
 
   // }
   // const url = new URL(req.url!);
-  // console.log(req.headers.host);
-  // console.log(req.url);
-  // console.log(url);
+  console.log(req.headers.host);
+  console.log(req.url);
   res.status(200).json({ name: 'John Doe' });
 }
