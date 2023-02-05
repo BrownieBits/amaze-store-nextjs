@@ -20,7 +20,7 @@ const getStuff = async () => {
       ? 'http://localhost:3000'
       : 'https://shiny-kringle-256047.netlify.app/';
   const res = await fetch(`${url_base}/api/hello`);
-  return 'hello';
+  return res.json();
 };
 
 export default async function RootLayout({
@@ -31,7 +31,7 @@ export default async function RootLayout({
   const store = await getStore();
   const theme = await getTheme();
   const stuff = await getStuff();
-  // console.log(theme);
+  console.log(stuff);
   useStore.setState({
     name: store.name,
     slug: store.slug,
@@ -49,6 +49,7 @@ export default async function RootLayout({
       <head />
       <body>
         <Nav />
+        <div>{stuff.name}</div>
         {children}
       </body>
     </html>
