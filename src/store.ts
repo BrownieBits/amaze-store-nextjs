@@ -9,6 +9,5 @@ export const useStore = create<{
   name: '',
   slug: '',
   logo: '',
-  banner:
-    '//dslv9ilpbe7p1.cloudfront.net/s5_LY6flav5cPWaKw3GU_w_store_logo_image.png',
+  banner: '',
 }));
