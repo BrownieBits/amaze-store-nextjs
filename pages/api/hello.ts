@@ -1,13 +1,22 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
-  name: string
-}
+  name: string;
+};
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  const host = req.headers.host;
+  let subdomain = process.env.STORE_NAME;
+  // if (host && host != 'localhost:3000') {
+
+  // }
+  // const url = new URL(req.url!);
+  // console.log(req.headers.host);
+  // console.log(req.url);
+  // console.log(url);
+  res.status(200).json({ name: 'John Doe' });
 }
